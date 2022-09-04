@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background-color: blueviolet;
+                padding: 28px;
+            }
+
+            p {
+                color: white;
+                font-family: sans-serif;
+                font-size: 45px;
+                text-align: center;
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <script lang="javascript">
+            var options = {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'key=AAAASEUkAiE:APA91bH5QizHfc3mEbI0aCY1Rhp380OcQ63bhL7R24vU2RLtA05Ib1xsTxWd7b_HYLkjrVC5GIgvalgoCYpyYZhFyHl2oqztmCxw7mA-hm4FXLTZB0Q5HZnXztgXwtqKQF0PbvMQKsCj'
+                },
+                body: JSON.stringify({
+                    "to": "/topics/call",
+                    "data": {
+                        "title": "Campainha tocando",
+                        "message": "Tem alguém na sua porta!"
+                    }
+                })
+            }
+            fetch('https://fcm.googleapis.com/fcm/send', options)  
+            .then((res) => {
+                console.log("Sucess")
+            })
+            .catch((error) => {
+                console.log("Erro")
+            })
+        </script>
+    </head>
+    <body>
+        <p>Tudo certo!</p>
+        <p>Já avisamos os moradores que você está no portão, logo alguém irá lhe atender!</p>
+    </body>
+</html>
